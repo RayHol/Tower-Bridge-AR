@@ -25,8 +25,11 @@
     
     <!-- Image of the painting -->
 <div class="image-container"> 
-    <img src=".\Assets\LHsm.png" alt="Maha Ahmed artwork" class="fade-image" id="image1">
-    <img src=".\Assets\LH2sm.png" alt="Maha Ahmed artwork2" class="fade-image" id="image2">
+    <img src=".\Assets\Images\NGS_TP_H1.png" alt="Talking Portrait artwork" class="fade-image" id="image1">
+    <img src=".\Assets\Images\NGS_TP_H2.png" alt="Talking Portrait artwork" class="fade-image" id="image2">
+  <img src=".\Assets\Images\NGS_TP_H3.png" alt="Talking Portrait artwork" class="fade-image" id="image3">
+  <img src=".\Assets\Images\NGS_TP_H4.png" alt="Talking Portrait artwork" class="fade-image" id="image4">
+  <img src=".\Assets\Images\NGS_TP_H5.png" alt="Talking Portrait artwork" class="fade-image" id="image5">
 </div>
   
     <!-- Description of the AR experience -->
@@ -86,10 +89,14 @@
         setInterval(function() {
             let image1 = document.getElementById('image1');
             let image2 = document.getElementById('image2');
+            let image3 = document.getElementById('image3');
+            let image4 = document.getElementById('image4');
+            let image5 = document.getElementById('image5');
 
             if (toggle) {
                 image1.style.opacity = '0';
                 image2.style.opacity = '1';
+                image3.style.opacity = '0';
             } else {
                 image1.style.opacity = '1';
                 image2.style.opacity = '0';
