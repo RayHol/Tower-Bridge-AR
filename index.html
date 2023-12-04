@@ -24,13 +24,13 @@
     <img id="logo" src=".\Assets\Smartify-logo.svg" alt="Smartify Logo" width="101" height="48">
     
     <!-- Image of the painting -->
-<div class="image-container"> 
-    <img src=".\Assets\Images\NGS_TP_H1.png" alt="Talking Portrait artwork" class="fade-image" id="image1">
-    <img src=".\Assets\Images\NGS_TP_H2.png" alt="Talking Portrait artwork" class="fade-image" id="image2">
-  <img src=".\Assets\Images\NGS_TP_H3.png" alt="Talking Portrait artwork" class="fade-image" id="image3">
-  <img src=".\Assets\Images\NGS_TP_H4.png" alt="Talking Portrait artwork" class="fade-image" id="image4">
-  <img src=".\Assets\Images\NGS_TP_H5.png" alt="Talking Portrait artwork" class="fade-image" id="image5">
-</div>
+    <div class="image-container"> 
+        <img src=".\Assets\Images\NGS_TP_H1.png" alt="Talking Portrait artwork" class="fade-image" id="image1">
+        <img src=".\Assets\Images\NGS_TP_H2.png" alt="Talking Portrait artwork" class="fade-image" id="image2">
+        <img src=".\Assets\Images\NGS_TP_H3.png" alt="Talking Portrait artwork" class="fade-image" id="image3">
+        <img src=".\Assets\Images\NGS_TP_H4.png" alt="Talking Portrait artwork" class="fade-image" id="image4">
+        <img src=".\Assets\Images\NGS_TP_H5.png" alt="Talking Portrait artwork" class="fade-image" id="image5">
+    </div>
   
     <!-- Description of the AR experience -->
     <div id="description">
@@ -41,92 +41,26 @@
     <!-- Button to start the AR experience -->
     <button id="startButton" onclick="location.href='AR_page.html';">GET STARTED</button>
 
-<!-- JavaScript for resizing -->
-<!--     <script>
-        function resizeImages() {
-              const imageContainer = document.querySelector('.image-container');
-              const fadeImages = document.querySelectorAll('.fade-image');
-
-              if (window.innerWidth > window.innerHeight) {
-                  // Landscape mode
-                  let size = window.innerHeight * 0.7; // 70% of viewport height
-                  imageContainer.style.width = `${size}px`;
-                  imageContainer.style.height = "auto";
-                  imageContainer.style.minHeight = `${size}px`;  // Add this line
-
-                  fadeImages.forEach((img) => {
-                      img.style.width = '100%';
-                      img.style.height = 'auto';
-                  });
-              } else {
-                  // Portrait mode
-                  imageContainer.style.width = '300px';
-                  imageContainer.style.height = 'auto';
-                  imageContainer.style.minHeight = '300px';  // Add this line
-
-                  fadeImages.forEach((img) => {
-                      img.style.width = '100%';
-                      img.style.height = 'auto';
-                  });
-              }
-          }
-
-        // Initial call
-        resizeImages();
-
-        // Attach the function to resize event
-        window.addEventListener('resize', resizeImages);
-
-        // Attach the function to orientationchange event with a delay
-        window.addEventListener('orientationchange', function() {
-            setTimeout(resizeImages, 200);
-        });
-    </script> -->
-  <!-- JavaScript for image fading -->
     <script>
-        let toggle = true;
+        // Array to hold image elements
+        let images = [];
+        for (let i = 1; i <= 5; i++) {
+            images.push(document.getElementById(`image${i}`));
+        }
+
+        // Variable to track the current image
+        let currentIndex = 0;
 
         setInterval(function() {
-            let image1 = document.getElementById('image1');
-            let image2 = document.getElementById('image2');
-            let image3 = document.getElementById('image3');
-            let image4 = document.getElementById('image4');
-            let image5 = document.getElementById('image5');
+            // Set all images to transparent
+            images.forEach(img => img.style.opacity = '0');
 
-            if (toggle) {
-                image1.style.opacity = '0';
-                image2.style.opacity = '1';
-                image3.style.opacity = '0';
-            } else {
-                image1.style.opacity = '1';
-                image2.style.opacity = '0';
-            }
+            // Set the current image to visible
+            images[currentIndex].style.opacity = '1';
 
-            toggle = !toggle;
+            // Increment the index, reset to 0 if it reaches the end
+            currentIndex = (currentIndex + 1) % images.length;
         }, 5000); // 5000ms = 5s
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
