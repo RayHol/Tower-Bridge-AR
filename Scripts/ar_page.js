@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
       
         audioButton.addEventListener("click", () => {
             isMuted = !isMuted;  // Toggle mute status
-            let wasVideoPlaying = !video1.paused;
+            let wasVideo1Playing = !video1.paused;
             let wasVideo2Playing = !video2.paused;
             let wasVideo3Playing = !video3.paused;
             let wasVideo4Playing = !video4.paused;
@@ -70,11 +70,11 @@ document.addEventListener('DOMContentLoaded', function () {
             video4.muted = isMuted;
             video5.muted = isMuted;
 
-            if (wasVideoPlaying) video1.play();
+            if (wasVideo1Playing) video1.play();
             if (wasVideo2Playing) video2.play();
-            if (wasVideoPlaying) video3.play();
-            if (wasVideoPlaying) video4.play();
-            if (wasVideoPlaying) video5.play();
+            if (wasVideo3Playing) video3.play();
+            if (wasVideo4Playing) video4.play();
+            if (wasVideo5Playing) video5.play();
 
             if (isMuted) {
                 audioButton.innerHTML = '<img id="audioPromptIcon" src="./Assets/mute-icon.svg" alt="Audio Icon"> Enable Audio';
@@ -97,12 +97,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 video1.addEventListener("ended", function videoend(e) {
                     played = true;
                 }, false);
-                plane1.object3D.position.copy(plane.object3D.position);
+                plane.object3D.position.copy(plane.object3D.position);
 
             }
         });
 
-        // Event listener for target lost event
+        // Event listener for firt target lost event
         target1.addEventListener("targetLost", () => {
             console.log("target 1 lost");
             audioPrompt.style.display = "block";
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Event listener for thirdtarget lost event
+        // Event listener for third target lost event
         Target3.addEventListener("targetLost", () => {
             console.log("target 3 lost");
             audioPrompt.style.display = "block";
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       
         // Event listener for forth target found event
-        Target2.addEventListener("targetFound", () => {
+        Target4.addEventListener("targetFound", () => {
             console.log("target 4 found");
             audioPrompt.style.display = "block";
             this.found4 = true;
