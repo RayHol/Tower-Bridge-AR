@@ -5,14 +5,23 @@ document.addEventListener('DOMContentLoaded', function () {
         this.el.sceneEl.setAttribute('loading-screen', 'enabled', false);
         // Get references to the necessary DOM elements
         const target = document.getElementById("target");
-        const secondTarget = document.getElementById("secondTarget");
+        const Target2 = document.getElementById("Target2");
+        const Target3 = document.getElementById("Target3");
+        const Target4 = document.getElementById("Target4");
+        const Target5 = document.getElementById("Target5");
         const video = document.getElementById("video");
         const video2 = document.getElementById("video2");
+        const video3 = document.getElementById("video3");
+        const video4 = document.getElementById("video4");
+        const video5 = document.getElementById("video5");
         const audioButton = document.getElementById("audioButton");
         const audioPrompt = document.getElementById("audioPrompt");
         const audioPromptIcon = document.getElementById("audioPromptIcon");
         const plane = document.getElementById("videooverlay");
         const plane2 = document.getElementById("videooverlay2");
+        const plane3 = document.getElementById("videooverlay3");
+        const plane4 = document.getElementById("videooverlay4");
+        const plane5 = document.getElementById("videooverlay5");
         const startText = document.getElementById("startText");
         
         const backgroundImage = document.getElementById("background");
@@ -48,12 +57,21 @@ document.addEventListener('DOMContentLoaded', function () {
             isMuted = !isMuted;  // Toggle mute status
             let wasVideoPlaying = !video.paused;
             let wasVideo2Playing = !video2.paused;
+            let wasVideo3Playing = !video3.paused;
+            let wasVideo4Playing = !video4.paused;
+            let wasVideo5Playing = !video5.paused;
 
             video.muted = isMuted;
             video2.muted = isMuted;
+            video3.muted = isMuted; 
+            video4.muted = isMuted;
+            video5.muted = isMuted;
 
             if (wasVideoPlaying) video.play();
             if (wasVideo2Playing) video2.play();
+            if (wasVideoPlaying) video3.play();
+            if (wasVideoPlaying) video4.play();
+            if (wasVideoPlaying) video5.play();
 
             if (isMuted) {
                 audioButton.innerHTML = '<img id="audioPromptIcon" src="./Assets/mute-icon.svg" alt="Audio Icon"> Enable Audio';
@@ -95,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     
         // Event listener for second target found event
-        secondTarget.addEventListener("targetFound", () => {
+        Target2.addEventListener("targetFound", () => {
             console.log("target 2 found");
             audioPrompt.style.display = "block";
             this.found2 = true;
@@ -112,12 +130,41 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Event listener for second target lost event
-        secondTarget.addEventListener("targetLost", () => {
+        Target2.addEventListener("targetLost", () => {
             console.log("target 2 lost");
             audioPrompt.style.display = "block";
             this.found2 = false;
             if (!played) {
                 video2.pause();
+                startText.style.display = "block";
+                // backgroundImage.style.display = "block";
+            }
+        });
+
+        // Event listener for thrid target found event
+        Target3.addEventListener("targetFound", () => {
+            console.log("target 3 found");
+            audioPrompt.style.display = "block";
+            this.found2 = true;
+            if (!played) {
+                startText.style.display = "none";
+                // backgroundImage.style.display = "none";
+                plane3.emit("fadein");
+                video3.play();
+                video3.addEventListener("ended", function videoend(e) {
+                    played3 = true;
+                }, false);
+                plane.object3D.position.copy(plane.object3D.position);
+            }
+        });
+
+        // Event listener for second target lost event
+        Target3.addEventListener("targetLost", () => {
+            console.log("target 3 lost");
+            audioPrompt.style.display = "block";
+            this.found2 = false;
+            if (!played) {
+                video3.pause();
                 startText.style.display = "block";
                 // backgroundImage.style.display = "block";
             }
