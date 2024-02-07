@@ -21,7 +21,7 @@
     <script src=".\Scripts\ar_page.js"></script>
 
     <!-- Set the title of the webpage -->
-    <title>Smartify - National Galleries Scotland | Talking Portraits</title>
+    <title>Smartify - Tower Bridge | POC</title>
     
     <!-- Include the Poppins font from Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap">
@@ -45,7 +45,7 @@
 <!--     <div id="background"></div> -->
     
     <!-- Text to prompt the user to point the camera at the painting -->
-    <div id="startText">Point your camera at the painting</div>
+    <div id="startText">Point your camera at the photo</div>
     
     <!-- Audio prompt container -->
     <div id="audioPrompt">
@@ -71,23 +71,11 @@
         <!-- Asset container -->
         <a-assets>
             <!-- Video 1 asset for the AR experience -->
-            <video id="video1" src=".\Assets\Videos\NGS_TP_V1.mp4" preload="auto" response-type="arraybuffer" loop
+            <video id="video1" src=".\Assets\Videos\Video1.mp4" preload="auto" response-type="arraybuffer" loop
                 crossorigin="anonymous" webkit-playsinline autoplay muted playsinline>
             </video>
           <!-- Video 2 asset for the AR experience -->
-            <video id="video2" src=".\Assets\Videos\NGS_TP_V2.mp4" preload="auto" response-type="arraybuffer" loop
-                crossorigin="anonymous" webkit-playsinline autoplay muted playsinline>
-            </video>
-          <!-- Video 2 asset for the AR experience -->
-            <video id="video3" src=".\Assets\Videos\NGS_TP_V3.mp4" preload="auto" response-type="arraybuffer" loop
-                crossorigin="anonymous" webkit-playsinline autoplay muted playsinline>
-            </video>
-          <!-- Video 4 asset for the AR experience -->
-            <video id="video4" src=".\Assets\Videos\NGS_TP_V4.mp4" preload="auto" response-type="arraybuffer" loop
-                crossorigin="anonymous" webkit-playsinline autoplay muted playsinline>
-            </video>
-            <!-- Video 5 asset for the AR experience -->
-            <video id="video5" src=".\Assets\Videos\NGS_TP_V5.mp4" preload="auto" response-type="arraybuffer" loop
+            <video id="video2" src=".\Assets\Videos\Video2.mp4" preload="auto" response-type="arraybuffer" loop
                 crossorigin="anonymous" webkit-playsinline autoplay muted playsinline>
             </video>
             <!-- Background audio asset -->
@@ -118,33 +106,6 @@
                 animation__fadeout="startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 500;"></a-plane>
           </a-entity>
           
-          <!-- AR target 3 entity -->
-        <a-entity id="Target3" mindar-image-target="targetIndex: 2" ar-controller
-            smooth-position="target: #videooverlay3; factor: 0.1">
-            <a-plane id="videooverlay3" height="1.26" width="1"
-                material="src: #video3; opacity: 0; transparent: false; alphaTest: 0.5"
-                animation__fadein="startEvents: fadein; property: material.opacity; from: 0; to: 1; dur: 500;"
-                animation__fadeout="startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 500;"></a-plane>
-        </a-entity>
-          
-          <!-- AR target 4 entity -->
-        <a-entity id="Target4" mindar-image-target="targetIndex: 3" ar-controller
-            smooth-position="target: #videooverlay4; factor: 0.1">
-            <a-plane id="videooverlay4" height="1.26" width="1"
-                material="src: #video4; opacity: 0; transparent: false; alphaTest: 0.5"
-                animation__fadein="startEvents: fadein; property: material.opacity; from: 0; to: 1; dur: 500;"
-                animation__fadeout="startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 500;"></a-plane>
-        </a-entity>
-          
-          <!-- AR target 5 entity -->
-        <a-entity id="Target5" mindar-image-target="targetIndex: 4" ar-controller
-            smooth-position="target: #videooverlay5; factor: 0.1">
-            <a-plane id="videooverlay5" height="1.26" width="1"
-                material="src: #video5; opacity: 0; transparent: false; alphaTest: 0.5"
-                animation__fadein="startEvents: fadein; property: material.opacity; from: 0; to: 1; dur: 500;"
-                animation__fadeout="startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 500;"></a-plane>
-        </a-entity>
-        
     </a-scene>
   
 <!--     <script>
